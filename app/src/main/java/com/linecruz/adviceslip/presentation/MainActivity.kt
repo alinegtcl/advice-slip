@@ -1,7 +1,8 @@
-package com.linecruz.adviceslip
+package com.linecruz.adviceslip.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.linecruz.adviceslip.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
