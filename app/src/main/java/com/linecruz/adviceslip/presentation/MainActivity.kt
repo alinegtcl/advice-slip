@@ -3,11 +3,15 @@ package com.linecruz.adviceslip.presentation
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.linecruz.adviceslip.R
 import com.linecruz.adviceslip.databinding.ActivityMainBinding
+import com.linecruz.adviceslip.domain.entity.Advice
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val viewmodel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,16 +23,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupButtonListener() {
         binding.buttonMainSeekAdvice.setOnClickListener {
-            //viewmodel.fetchAdvice()
+            viewmodel.fetchAdvice()
         }
     }
 
     private fun setupViewModel() {
-        TODO("Not yet implemented")
+        viewmodel.state.observe(this) {
+            when (it) {
+                is AdviceState.AdviceSuccess -> fillAdviceSlip(it.advice)
+                is AdviceState.AdviceError -> showError(it.error)
+            }
+        }
     }
 
-    private fun fillAdviceSlip(message: String) {
-        binding.textMainAdviceSlip.text = message
+    private fun fillAdviceSlip(advice: Advice) {
+        binding.textMainAdviceSlip.text = advice.advice
     }
 
     private fun showError(message: String) {

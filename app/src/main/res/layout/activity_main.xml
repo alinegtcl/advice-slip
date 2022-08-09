@@ -9,7 +9,10 @@
     <TextView
         android:id="@+id/textMainAdviceSlip"
         android:layout_width="wrap_content"
+        android:paddingHorizontal="16dp"
         android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:gravity="center"
         android:text="@string/message_default_advice"
         app:layout_constraintBottom_toTopOf="@id/buttonMainSeekAdvice"
         app:layout_constraintEnd_toEndOf="parent"
