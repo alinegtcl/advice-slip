@@ -1,19 +1,12 @@
 package com.linecruz.adviceslip.domain.usecase
 
 import com.linecruz.adviceslip.data.model.SlipResponse
-import com.linecruz.adviceslip.domain.entity.Advice
 import com.linecruz.adviceslip.domain.repository.AdviceSlipRepository
+import retrofit2.Response
 
-class FetchAdviceSlipUseCase (private val repository: AdviceSlipRepository) {
+class FetchAdviceSlipUseCase(private val repository: AdviceSlipRepository) {
 
-    suspend fun fetchAdviceSlip() : Advice? {
-        return repository.fetchSlipDevice().body().toAdvice()
+    suspend fun fetchAdviceSlip(): Response<SlipResponse> {
+        return repository.fetchSlipDevice()
     }
 }
-
-private fun SlipResponse?.toAdvice() = this?.slip?.let {
-    Advice(
-        advice = it.advice
-    )
-}
-
