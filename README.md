@@ -1,2 +1,2 @@
 # advice-slip
-App de conselhos utilizando a api pública Advice Slipe JSON API para praticar.
+Advice app using the public Advice Slip JSON API for practice.
