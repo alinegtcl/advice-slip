@@ -7,9 +7,9 @@ import retrofit2.http.GET
 interface AdviceSlipService {
 
     companion object {
-        const val GET_ADVICE_SLIP_ENDPOINT = "https://api.adviceslip.com/advice"
+        const val GET_ADVICE_SLIP = "/advice"
     }
 
-    @GET(GET_ADVICE_SLIP_ENDPOINT)
+    @GET(GET_ADVICE_SLIP)
     suspend fun getAdviceSlip(): Response<SlipResponse>
 }
