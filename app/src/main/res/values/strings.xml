@@ -2,4 +2,5 @@
     <string name="app_name">AdviceSlip</string>
     <string name="message_default_advice">Bring beer you must!</string>
     <string name="label_seek_advice">Seek Advice</string>
+    <string name="label_error_ocurred">An error occurred: %s</string>
 </resources>
