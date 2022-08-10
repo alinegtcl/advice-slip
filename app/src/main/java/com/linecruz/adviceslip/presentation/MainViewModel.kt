@@ -19,10 +19,10 @@ class MainViewModel(private val useCase: FetchAdviceSlipUseCase) : ViewModel() {
         val result = useCase.fetchAdviceSlip()
         result.flow(
             { advice ->
-                _state.postValue(AdviceState.HideLoading)
+                _state.value = AdviceState.HideLoading
                 _state.postValue(AdviceState.AdviceSuccess(advice))
             }, { responseError ->
-                _state.postValue(AdviceState.HideLoading)
+                _state.value = AdviceState.HideLoading
                 _state.postValue(AdviceState.AdviceError(responseError))
             }
         )

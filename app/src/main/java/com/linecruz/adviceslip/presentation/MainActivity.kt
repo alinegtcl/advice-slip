@@ -1,9 +1,9 @@
 package com.linecruz.adviceslip.presentation
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.linecruz.adviceslip.R
 import com.linecruz.adviceslip.databinding.ActivityMainBinding
 import com.linecruz.adviceslip.domain.entity.Advice
@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewmodel: MainViewModel by viewModel()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,15 +23,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupButtonListener() {
         binding.buttonMainSeekAdvice.setOnClickListener {
-            viewmodel.fetchAdvice()
+            viewModel.fetchAdvice()
         }
     }
 
     private fun setupViewModel() {
-        viewmodel.state.observe(this) {
+        viewModel.state.observe(this) {
             when (it) {
                 is AdviceState.AdviceSuccess -> fillAdviceSlip(it.advice)
                 is AdviceState.AdviceError -> showError(it.error)
+                is AdviceState.ShowLoading -> binding.loadingMain.visibility = View.VISIBLE
+                is AdviceState.HideLoading -> binding.loadingMain.visibility = View.GONE
             }
         }
     }
