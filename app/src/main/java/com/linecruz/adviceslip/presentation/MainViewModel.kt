@@ -1,32 +1,30 @@
 package com.linecruz.adviceslip.presentation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.linecruz.adviceslip.common.flow
 import com.linecruz.adviceslip.domain.usecase.FetchAdviceSlipUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val useCase: FetchAdviceSlipUseCase) : ViewModel() {
 
-    private val _state = MutableLiveData<AdviceState>()
-    val state: LiveData<AdviceState>
-        get() = _state
+    private val _state = MutableStateFlow<AdviceState>(AdviceState.HideLoading)
+    val state = _state.asStateFlow()
 
     fun fetchAdvice() = viewModelScope.launch {
-        _state.postValue(AdviceState.ShowLoading)
+        _state.value = AdviceState.ShowLoading
         val result = useCase.fetchAdviceSlip()
         result.flow(
             { advice ->
                 _state.value = AdviceState.HideLoading
-                _state.postValue(AdviceState.AdviceSuccess(advice))
+                _state.value = AdviceState.AdviceSuccess(advice)
             }, { responseError ->
                 _state.value = AdviceState.HideLoading
-                _state.postValue(AdviceState.AdviceError(responseError))
+                _state.value = AdviceState.AdviceError(responseError)
             }
         )
     }
-
 }
 

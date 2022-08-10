@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.linecruz.adviceslip.R
 import com.linecruz.adviceslip.databinding.ActivityMainBinding
 import com.linecruz.adviceslip.domain.entity.Advice
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -28,12 +30,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        viewModel.state.observe(this) {
-            when (it) {
-                is AdviceState.AdviceSuccess -> fillAdviceSlip(it.advice)
-                is AdviceState.AdviceError -> showError(it.error)
-                is AdviceState.ShowLoading -> binding.loadingMain.visibility = View.VISIBLE
-                is AdviceState.HideLoading -> binding.loadingMain.visibility = View.GONE
+        lifecycleScope.launchWhenCreated {
+            viewModel.state.collectLatest {
+                when (it) {
+                    is AdviceState.AdviceSuccess -> fillAdviceSlip(it.advice)
+                    is AdviceState.AdviceError -> showError(it.error)
+                    is AdviceState.ShowLoading -> binding.loadingMain.visibility = View.VISIBLE
+                    is AdviceState.HideLoading -> binding.loadingMain.visibility = View.GONE
+                }
             }
         }
     }
