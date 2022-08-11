@@ -3,7 +3,7 @@ package com.linecruz.adviceslip.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.linecruz.adviceslip.common.flow
-import com.linecruz.adviceslip.domain.usecase.FetchAdviceSlipUseCase
+import com.linecruz.adviceslip.presentation.usecase.FetchAdviceSlipUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
