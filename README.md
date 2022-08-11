@@ -5,7 +5,7 @@ Advice app using the public Advice Slip JSON API for practice.
 And what's interesting about that?
 
 - Dependency injection using Koin
-- MVVM
+- Model-view-viewmodel (MVVM)
 - Clean Architecture
 - Coroutines
 - Monade Either, I made a Result with Success and Error, it's in a common directory
