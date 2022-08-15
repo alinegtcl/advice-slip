@@ -65,6 +65,10 @@ dependencies {
     testImplementation "io.insert-koin:koin-test:$koin_version"
     testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
 
+    // Lottie Animation
+    def lottie_version = "5.2.0"
+    implementation "com.airbnb.android:lottie:$lottie_version"
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation "io.mockk:mockk:1.12.5"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
