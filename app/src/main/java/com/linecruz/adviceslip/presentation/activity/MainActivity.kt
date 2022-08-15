@@ -1,4 +1,4 @@
-package com.linecruz.adviceslip.presentation
+package com.linecruz.adviceslip.presentation.activity
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import com.linecruz.adviceslip.R
 import com.linecruz.adviceslip.databinding.ActivityMainBinding
 import com.linecruz.adviceslip.domain.entity.Advice
+import com.linecruz.adviceslip.presentation.viewmodel.MainViewModel
+import com.linecruz.adviceslip.presentation.viewmodel.AdviceState
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

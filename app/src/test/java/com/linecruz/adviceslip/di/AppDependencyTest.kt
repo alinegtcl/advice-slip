@@ -23,15 +23,11 @@ class AppDependencyTest {
 
     @get:Rule
     val mockProvider = MockProviderRule.create { clazz ->
-        mockkObject(
-            clazz.java
-        )
+        mockkObject(clazz.java)
     }
 
     @Before
-    fun tearDown() {
-        stopKoin()
-    }
+    fun tearDown() = stopKoin()
 
     @Test
     fun `checks if the project has all dependencies being injected`() {

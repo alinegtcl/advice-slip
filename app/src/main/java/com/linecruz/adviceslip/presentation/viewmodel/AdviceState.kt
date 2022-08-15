@@ -1,4 +1,4 @@
-package com.linecruz.adviceslip.presentation
+package com.linecruz.adviceslip.presentation.viewmodel
 
 import com.linecruz.adviceslip.domain.entity.Advice
 
