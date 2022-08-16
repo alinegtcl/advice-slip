@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">AdviceSlip</string>
+    <string name="app_name">Advice Slip</string>
     <string name="message_default_advice">Bring beer you must!</string>
     <string name="label_seek_advice">Seek Advice</string>
     <string name="label_error_ocurred">An error occurred: %s</string>
+    <string name="label_splash_message">Millennial advice \nin the palm of your hand</string>
+    <string name="message_be_happy">Be Happy!</string>
 </resources>

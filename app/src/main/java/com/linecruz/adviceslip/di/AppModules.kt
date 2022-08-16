@@ -6,7 +6,7 @@ import com.linecruz.adviceslip.data.service.AdviceSlipCreateService
 import com.linecruz.adviceslip.domain.mapper.Mapper
 import com.linecruz.adviceslip.domain.repository.AdviceSlipRepository
 import com.linecruz.adviceslip.domain.usecase.FetchAdviceSlipUseCaseImpl
-import com.linecruz.adviceslip.presentation.MainViewModel
+import com.linecruz.adviceslip.presentation.viewmodel.MainViewModel
 import com.linecruz.adviceslip.presentation.usecase.FetchAdviceSlipUseCase
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

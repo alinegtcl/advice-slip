@@ -1,4 +1,4 @@
-package com.linecruz.adviceslip.presentation
+package com.linecruz.adviceslip.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
