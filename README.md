@@ -5,6 +5,7 @@ Advice app using the public Advice Slip JSON API for practice.
 And what's interesting about that?
 
 - Dependency injection using Koin
+- Animation with Lottie
 - Model-view-viewmodel (MVVM)
 - Clean Architecture
 - Coroutines
