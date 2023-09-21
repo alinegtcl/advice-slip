@@ -1,15 +1,15 @@
 package com.linecruz.adviceslip.domain.usecase
 
-import com.linecruz.adviceslip.common.Result
+import com.linecruz.adviceslip.domain.utils.Result
 import com.linecruz.adviceslip.domain.mapper.Mapper
 import com.linecruz.adviceslip.domain.entity.Advice
-import com.linecruz.adviceslip.domain.repository.AdviceSlipRepository
-import com.linecruz.adviceslip.presentation.usecase.FetchAdviceSlipUseCase
+import com.linecruz.adviceslip.domain.output.AdviceSlipOutput
+import com.linecruz.adviceslip.domain.input.AdviceSlipInput
 
 class FetchAdviceSlipUseCaseImpl(
-    private val repository: AdviceSlipRepository,
+    private val repository: AdviceSlipOutput,
     private val mapper: Mapper
-) : FetchAdviceSlipUseCase {
+) : AdviceSlipInput {
 
     override suspend fun fetchAdviceSlip(): Result<Advice, String> {
         val result = repository.fetchSlipDevice()

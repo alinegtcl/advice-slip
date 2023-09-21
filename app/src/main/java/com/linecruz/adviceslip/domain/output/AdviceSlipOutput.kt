@@ -1,9 +1,9 @@
-package com.linecruz.adviceslip.domain.repository
+package com.linecruz.adviceslip.domain.output
 
 import com.linecruz.adviceslip.data.model.SlipResponse
 import retrofit2.Response
 
-interface AdviceSlipRepository {
+interface AdviceSlipOutput {
 
     suspend fun fetchSlipDevice() : Response<SlipResponse>
 }
